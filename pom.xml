@@ -67,13 +67,25 @@
         </dependencies>
     </dependencyManagement>
 
-    <!-- General dependencies included in all modules -->
+    <!-- Common dependencies included in all modules -->
     <dependencies>
         <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- Validation -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+        <!-- Logging -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-to-slf4j</artifactId>
         </dependency>
     </dependencies>
 
