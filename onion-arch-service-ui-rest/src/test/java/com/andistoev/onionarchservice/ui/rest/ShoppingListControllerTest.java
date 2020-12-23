@@ -2,9 +2,7 @@ package com.andistoev.onionarchservice.ui.rest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.UUID;
@@ -16,7 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(ShoppingListController.class)
 class ShoppingListControllerTest {
 
-    private static final String API_URI = "/api/shopping-list";
+    private static final String API_URI = "/api/1/shopping-list";
 
     private static final UUID MOCK_SHOPPING_LIST_ID = UUID.randomUUID();
 

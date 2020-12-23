@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/shopping-list")
+@RequestMapping("/api/1/shopping-list")
 @Api(value = "API to shopping list", produces = "application/json")
 @RequiredArgsConstructor
 public class ShoppingListController {

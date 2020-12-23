@@ -1,7 +1,6 @@
 package com.andistoev.onionarchservice;
 
 import com.andistoev.onionarchservice.api.ShoppingListService;
-import org.mockito.Mock;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.mock.mockito.MockBean;
