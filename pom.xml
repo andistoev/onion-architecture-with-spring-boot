@@ -27,6 +27,7 @@
     <properties>
         <java.version>11</java.version>
         <spring-boot.version>2.4.1</spring-boot.version>
+        <swagger.version>3.0.0</swagger.version>
 
         <main.basedir>${project.basedir}</main.basedir>
 
@@ -55,6 +56,14 @@
                 <artifactId>onion-arch-service-ui-rest</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+            <!-- Swagger -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

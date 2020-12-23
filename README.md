@@ -10,6 +10,17 @@ This SpringBoot maven project is part of my [blog post](https://blog.mimacom.com
 
 Have fun and do not hesitate to contact me if you have any questions or suggestions!
 
+### Test the REST Apis
+
+1. Start the project
+2. Start in browser: http://localhost:8081/swagger-ui/index.html#/shopping-list-controller
+3. From shopping-list-controller use the following API's:
+3.1. Create a new ShoppingList and copy the retrieved URL
+3.2. Add item to the ShoppingList
+3.3. Get the total price 
+   
+(!) Not that the shipping costs under 100.00 units is extra 10.00 units
+
 ### About me
 My name is [Andrey Zahariev Stoev](https://www.linkedin.com/in/andistoev). 
 I am working as Senior Software Architect in Switzerland.

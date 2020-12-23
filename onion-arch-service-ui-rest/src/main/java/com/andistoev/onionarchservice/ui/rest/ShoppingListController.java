@@ -1,6 +1,8 @@
 package com.andistoev.onionarchservice.ui.rest;
 
 import com.andistoev.onionarchservice.api.ShoppingListService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.Validate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,16 +17,19 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/shopping-list")
+@Api(value = "API to shopping list", produces = "application/json")
 @RequiredArgsConstructor
 public class ShoppingListController {
 
     private final ShoppingListService shoppingListService;
 
+    @ApiOperation(value = "Create new shopping list", produces = "application/json")
     @PutMapping("/")
     UUID createShoppingList() {
         return shoppingListService.createShoppingList();
     }
 
+    @ApiOperation(value = "Add new item to a shopping list", produces = "application/json")
     @PutMapping("/{shoppingListId}/item")
     UUID addItemToTheShoppingList(
         @PathVariable UUID shoppingListId,
@@ -40,6 +45,7 @@ public class ShoppingListController {
         return shoppingListService.addItemToTheShoppingList(shoppingListId, productName, price, quantity);
     }
 
+    @ApiOperation(value = "Get shopping list's total price, with the shipping costs of 10 credits included (if the price is >=100 credits, then the shipping is free of charge)!", produces = "application/json")
     @GetMapping("/{shoppingListId}/total-price")
     double getTotalPrice(@PathVariable UUID shoppingListId) {
         Validate.notNull(shoppingListId, "Missing mandatory input parameter: shoppingListId");
