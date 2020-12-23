@@ -12,7 +12,7 @@ This SpringBoot maven project is part of my [blog post](https://blog.mimacom.com
 
 How to test the ShoppingList's APIs?
 
-After you start the project, navigate to: http://localhost:8081/swagger-ui/index.html#/shopping-list-controller and then from shopping-list-controller use the following API's:
+After you start the project, navigate to: [shopping-list-controller in localhost swagger API's](http://localhost:8081/swagger-ui/index.html#/shopping-list-controller) and then use the following end points:
 - Create a new ShoppingList and copy the retrieved URL;
 - Add item to the ShoppingList;
 - Get the total price.
