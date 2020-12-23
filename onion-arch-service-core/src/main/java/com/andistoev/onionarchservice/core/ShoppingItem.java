@@ -6,10 +6,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Transient;
+import javax.validation.constraints.Size;
 import java.util.UUID;
 
 @Data
@@ -21,15 +23,16 @@ public class ShoppingItem {
     @Id
     private final UUID id = UUID.randomUUID();
 
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     @Setter(AccessLevel.PRIVATE)
     private String productName;
 
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     @Setter(AccessLevel.PRIVATE)
     private Double price;
 
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
+    @Size(min = 1, max = 1000)
     private int quantity;
 
     @Transient
