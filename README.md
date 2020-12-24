@@ -17,7 +17,7 @@ After you start locally the project, navigate to: [http://localhost:8081/swagger
 - Add item to the ShoppingList;
 - Get its total price.
 
-🔔 Note that the total price contains shipping costs of 10 credits (the shipping is free of charge if the shopping list has items for more than 100 credits).
+🔔 While testing take into consideration this shiny business rule: the total price contains shipping costs of 10 credits (the shipping is free of charge if the shopping list has items for more than 100 credits).
 
 Have fun and do not hesitate to contact me if you have any questions or suggestions!
 
