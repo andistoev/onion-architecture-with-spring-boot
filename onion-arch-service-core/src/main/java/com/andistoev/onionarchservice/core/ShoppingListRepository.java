@@ -15,5 +15,3 @@ public interface ShoppingListRepository {
 
     void deleteAll();
 }
-
-
