@@ -12,12 +12,12 @@ This SpringBoot maven project is part of my [blog post](https://blog.mimacom.com
 
 How to test the ShoppingList's APIs?
 
-After you start locally the project, navigate to: [http://localhost:8081/swagger-ui/index.html#/shopping-list-controller](http://localhost:8081/swagger-ui/index.html#/shopping-list-controller) and then use the following end points:
+After you have started the project locally, navigate to: [http://localhost:8081/swagger-ui/index.html#/shopping-list-controller](http://localhost:8081/swagger-ui/index.html#/shopping-list-controller) and then use the following end points:
 - Create a new ShoppingList and copy the retrieved shoppingListId (UUID);
 - Add item to the ShoppingList;
 - Get its total price.
 
-🔔 While testing take into consideration this shiny business rule: the total price contains shipping costs of 10 credits (the shipping is free of charge if the shopping list has items for more than 100 credits).
+🔔 Did you notice that the final price is increased with 10 more credits than you may have expected? Yes, this is the shiny business rule to have shipping costs of 10 credits (it will become free of charge if the shopping list has items for more than 100 credits). You may have already forgotten, but the software implemented with onion architecture will never forget about it! 😉
 
 Have fun and do not hesitate to contact me if you have any questions or suggestions!
 
