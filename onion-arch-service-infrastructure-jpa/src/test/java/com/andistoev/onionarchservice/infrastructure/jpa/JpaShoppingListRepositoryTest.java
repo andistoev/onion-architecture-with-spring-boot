@@ -6,7 +6,7 @@ import com.andistoev.onionarchservice.core.ShoppingListRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
@@ -16,8 +16,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ActiveProfiles("test")
-@SpringBootTest
-class SpringShoppingListRepositoryTest {
+@DataJpaTest
+class JpaShoppingListRepositoryTest {
 
     private final ShoppingItem milkItem = ShoppingItem.of("milk", 1.8d, 1);
     private final ShoppingItem breadItem = ShoppingItem.of("bread", 3d, 1);

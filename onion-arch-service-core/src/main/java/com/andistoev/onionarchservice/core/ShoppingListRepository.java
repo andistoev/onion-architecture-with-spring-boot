@@ -8,7 +8,12 @@ public interface ShoppingListRepository {
 
     Optional<ShoppingList> findById(UUID id);
 
-    ShoppingList findByIdOrFail(UUID id);
+    default ShoppingList findByIdOrFail(UUID id) {
+        return findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("Item with id: <" + id + "> not found!"));
+    }
 
     void deleteAll();
 }
+
+
