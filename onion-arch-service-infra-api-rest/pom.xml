@@ -10,30 +10,11 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>onion-arch-service</artifactId>
+    <artifactId>onion-arch-service-infra-api-rest</artifactId>
 
     <properties>
         <main.basedir>${project.parent.basedir}</main.basedir>
     </properties>
-
-    <build>
-        <finalName>${project.artifactId}</finalName>
-
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
     <dependencies>
         <!-- Project modules -->
@@ -41,19 +22,17 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>onion-arch-service-api</artifactId>
         </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>onion-arch-service-infra-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>onion-arch-service-infra-api-rest</artifactId>
-        </dependency>
 
-        <!-- Spring Boot -->
+        <!-- Spring Boot Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
         </dependency>
 
         <!-- Test -->
@@ -63,5 +42,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 </project>

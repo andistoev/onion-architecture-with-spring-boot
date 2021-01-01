@@ -13,8 +13,8 @@
     <modules>
         <module>onion-arch-service-core</module>
         <module>onion-arch-service-api</module>
-        <module>onion-arch-service-infrastructure-jpa</module>
-        <module>onion-arch-service-ui-rest</module>
+        <module>onion-arch-service-infra-jpa</module>
+        <module>onion-arch-service-infra-api-rest</module>
         <module>onion-arch-service</module>
     </modules>
 
@@ -48,12 +48,12 @@
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>onion-arch-service-infrastructure-jpa</artifactId>
+                <artifactId>onion-arch-service-infra-jpa</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>onion-arch-service-ui-rest</artifactId>
+                <artifactId>onion-arch-service-infra-api-rest</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
