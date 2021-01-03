@@ -27,10 +27,15 @@ public class SwaggerConfig {
         "Andrey Zahariev Stoev", "https://www.linkedin.com/in/andistoev", "");
 
     public static final ApiInfo DEFAULT_API_INFO = new ApiInfo(
-        "Onion Architecture Example - Shopping List API's", "Try the following Shopping List's APIs to test how the onion architecture works!", "1.0",
+        "Onion Architecture Example - Shopping List API's",
+        "Try the following Shopping List's APIs to test how the onion architecture works!",
+        "1.0",
         null, DEFAULT_CONTACT,
-        "GNU General Public License v3.0", "https://www.gnu.org/licenses/gpl-3.0.en.html", Collections.emptyList());
+        "GNU General Public License v3.0",
+        "https://www.gnu.org/licenses/gpl-3.0.en.html",
+        Collections.emptyList());
 
-    private static final Set<String> DEFAULT_PRODUCES_AND_CONSUMES = new HashSet<>(Arrays.asList("application/json", "application/xml"));
-
+    private static final Set<String> DEFAULT_PRODUCES_AND_CONSUMES = new HashSet<>(
+        Arrays.asList("application/json", "application/xml")
+    );
 }

@@ -36,7 +36,10 @@ public class ShoppingListController {
     @PostMapping("/")
     ResponseEntity<?> createShoppingList(UriComponentsBuilder uriComponentsBuilder) {
         UriComponents uriComponents = uriComponentsBuilder.path(BASE_URI + "/{shoppingListId}")
-            .buildAndExpand(shoppingListService.createShoppingList());
+            .buildAndExpand(
+                shoppingListService.createShoppingList()
+            );
+
         return created(uriComponents.toUri()).build();
     }
 
@@ -50,16 +53,21 @@ public class ShoppingListController {
         @RequestParam Integer quantity) {
 
         Validate.noNullElements(Arrays.asList(shoppingListId, productName, price, quantity),
-            "Invalid input parameter/-s: shoppingListId=%s, productName=%s, price=%f, quantity=%d", shoppingListId, productName, price, quantity);
+            "Invalid input parameter/-s: shoppingListId=%s, productName=%s, price=%f, quantity=%d",
+            shoppingListId, productName, price, quantity);
 
         Validate.isTrue(quantity >= 1, "The quantity has to be greater or equal to 1");
 
         UriComponents uriComponents = uriComponentsBuilder.path(BASE_URI + "/" + shoppingListId + "/items/{itemId}")
-            .buildAndExpand(shoppingListService.addItemToTheShoppingList(shoppingListId, productName, price, quantity));
+            .buildAndExpand(
+                shoppingListService.addItemToTheShoppingList(shoppingListId, productName, price, quantity)
+            );
+
         return created(uriComponents.toUri()).build();
     }
 
-    @ApiOperation(value = "Get shopping list's total price, with the shipping costs of 10 credits included (if the price is >=100 credits, then the shipping is free of charge)!", produces = "application/json")
+    @ApiOperation(value = "Get shopping list's total price, with the shipping costs of 10 credits included"
+        +" (if the price is >=100 credits, then the shipping is free of charge)!", produces = "application/json")
     @GetMapping("/{shoppingListId}/totalprice")
     ResponseEntity<?> getTotalPrice(@PathVariable UUID shoppingListId) {
         Validate.notNull(shoppingListId, "Missing mandatory input parameter: shoppingListId");

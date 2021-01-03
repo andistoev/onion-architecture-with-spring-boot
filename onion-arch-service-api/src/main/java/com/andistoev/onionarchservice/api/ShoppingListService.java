@@ -31,14 +31,16 @@ public class ShoppingListService {
         ShoppingItem shoppingItem = ShoppingItem.of(productName, price, quantity);
         shoppingList.addItem(shoppingItem);
         shoppingListRepository.save(shoppingList);
-        log.info("Added a new item <{}> to the ShoppingList <id: {}>", shoppingItem, shoppingList.getId());
+        log.info("Added a new item <{}> to the ShoppingList <id: {}>",
+            shoppingItem, shoppingList.getId());
         return shoppingItem.getId();
     }
 
     @Transactional(readOnly = true)
     public double getTotalPrice(UUID shoppingListId){
         ShoppingList shoppingList = shoppingListRepository.findByIdOrFail(shoppingListId);
-        log.info("Retrieved the totalPrice={} for ShoppingList <id: {}>", shoppingList.getTotalPrice(), shoppingListId);
+        log.info("Retrieved the totalPrice={} for ShoppingList <id: {}>",
+            shoppingList.getTotalPrice(), shoppingListId);
         return shoppingList.getTotalPrice();
     }
 }
