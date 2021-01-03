@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.Validate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +17,7 @@ import java.util.Arrays;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/1/shopping-list")
+@RequestMapping("/api/1/shopping-lists")
 @Api(value = "API to shopping list", produces = "application/json")
 @RequiredArgsConstructor
 public class ShoppingListController {
@@ -24,13 +25,13 @@ public class ShoppingListController {
     private final ShoppingListService shoppingListService;
 
     @ApiOperation(value = "Create new shopping list", produces = "application/json")
-    @PutMapping("/")
+    @PostMapping("/")
     UUID createShoppingList() {
         return shoppingListService.createShoppingList();
     }
 
     @ApiOperation(value = "Add new item to a shopping list", produces = "application/json")
-    @PutMapping("/{shoppingListId}/item")
+    @PostMapping("/{shoppingListId}/items")
     UUID addItemToTheShoppingList(
         @PathVariable UUID shoppingListId,
         @RequestParam String productName,

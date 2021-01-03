@@ -8,13 +8,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.UUID;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(ShoppingListController.class)
 class ShoppingListControllerTest {
 
-    private static final String API_URI = "/api/1/shopping-list";
+    private static final String API_URI = "/api/1/shopping-lists";
 
     private static final UUID MOCK_SHOPPING_LIST_ID = UUID.randomUUID();
 
@@ -23,15 +23,15 @@ class ShoppingListControllerTest {
 
     @Test
     void createShoppingList() throws Exception {
-        mockMvc.perform(put(API_URI + "/"))
+        mockMvc.perform(post(API_URI + "/"))
             .andExpect(status().isOk());
     }
 
     @Test
     void addItemToTheShoppingList() throws Exception {
-        String uri = String.format("%s/%s/item", API_URI, MOCK_SHOPPING_LIST_ID);
+        String uri = String.format("%s/%s/items", API_URI, MOCK_SHOPPING_LIST_ID);
         mockMvc
-            .perform(put(uri)
+            .perform(post(uri)
                 .queryParam("productName", "milk")
                 .queryParam("price", "3.8")
                 .queryParam("quantity", "1")
