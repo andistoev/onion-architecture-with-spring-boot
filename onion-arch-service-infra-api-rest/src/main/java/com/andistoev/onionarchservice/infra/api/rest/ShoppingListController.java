@@ -35,7 +35,8 @@ public class ShoppingListController {
     @ApiOperation(value = "Create new shopping list", produces = "application/json")
     @PostMapping("/")
     ResponseEntity<?> createShoppingList(UriComponentsBuilder uriComponentsBuilder) {
-        UriComponents uriComponents = uriComponentsBuilder.path(BASE_URI + "/{shoppingListId}")
+        UriComponents uriComponents = uriComponentsBuilder
+            .path(BASE_URI + "/{shoppingListId}")
             .buildAndExpand(
                 shoppingListService.createShoppingList()
             );
@@ -58,7 +59,8 @@ public class ShoppingListController {
 
         Validate.isTrue(quantity >= 1, "The quantity has to be greater or equal to 1");
 
-        UriComponents uriComponents = uriComponentsBuilder.path(BASE_URI + "/" + shoppingListId + "/items/{itemId}")
+        UriComponents uriComponents = uriComponentsBuilder
+            .path(BASE_URI + "/" + shoppingListId + "/items/{itemId}")
             .buildAndExpand(
                 shoppingListService.addItemToTheShoppingList(shoppingListId, productName, price, quantity)
             );
@@ -67,7 +69,8 @@ public class ShoppingListController {
     }
 
     @ApiOperation(value = "Get shopping list's total price, with the shipping costs of 10 credits included"
-        +" (if the price is >=100 credits, then the shipping is free of charge)!", produces = "application/json")
+        +" (if the price is >=100 credits, then the shipping is free of charge)!",
+        produces = "application/json")
     @GetMapping("/{shoppingListId}/totalprice")
     ResponseEntity<?> getTotalPrice(@PathVariable UUID shoppingListId) {
         Validate.notNull(shoppingListId, "Missing mandatory input parameter: shoppingListId");
