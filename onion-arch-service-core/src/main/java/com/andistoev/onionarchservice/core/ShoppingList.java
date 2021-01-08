@@ -10,7 +10,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Transient;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -35,22 +34,18 @@ public class ShoppingList {
         return new ShoppingList();
     }
 
-    @Transient
     public void addItem(ShoppingItem shoppingItem) {
         shoppingItems.add(shoppingItem);
     }
 
-    @Transient
     public int getSize() {
         return shoppingItems.size();
     }
 
-    @Transient
     public void removeItem(ShoppingItem shoppingItem) {
         shoppingItems.remove(shoppingItem);
     }
 
-    @Transient
     public ShoppingItem getItem(UUID shoppingItemId) {
         return shoppingItems.stream()
             .filter(shoppingItem -> shoppingItem.getId().equals(shoppingItemId))
@@ -58,19 +53,16 @@ public class ShoppingList {
             .orElseThrow(() -> new IllegalArgumentException("Item with id: <" + id + "> not found!"));
     }
 
-    @Transient
     public Double getTotalItems() {
         return shoppingItems.stream()
             .mapToDouble(ShoppingItem::getQuantity)
             .sum();
     }
 
-    @Transient
     public Double getSubtotalPrice() {
         return shoppingItems.stream().mapToDouble(ShoppingItem::getSubtotalPrice).sum();
     }
 
-    @Transient
     public Double getShippingCosts() {
         if (getTotalItems() == 0) {
             return 0d;
@@ -83,7 +75,6 @@ public class ShoppingList {
         return STANDARD_SHIPPING_COSTS;
     }
 
-    @Transient
     public Double getTotalPrice() {
         return getSubtotalPrice() + getShippingCosts();
     }

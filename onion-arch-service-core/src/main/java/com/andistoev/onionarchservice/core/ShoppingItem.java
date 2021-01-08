@@ -9,7 +9,6 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 import java.util.UUID;
 
@@ -34,7 +33,6 @@ public class ShoppingItem {
     @Size(min = 1, max = 1000)
     private int quantity;
 
-    @Transient
     public Double getSubtotalPrice() {
         return price * quantity;
     }
